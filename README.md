@@ -25,7 +25,7 @@ sudo apt-get install python3-pip
 ```
 
 ### Instalar requerimientos (Windows)
-Baja al final de la [página](https://www.python.org/downloads/release/python-362/) e instala python3 (Windows Executable Installer)
+Baja al final de la ---> [página](https://www.python.org/downloads/release/python-362/) <--- e instala python3 (Windows Executable Installer)
 
 Ejecuta en la terminal:
 ```sh
