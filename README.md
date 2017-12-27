@@ -24,6 +24,33 @@ sudo apt-get install python-pip
 sudo apt-get install python3-pip
 ```
 
+### Instalar requerimientos (Windows)
+Baja al final de la [página](https://www.python.org/downloads/release/python-362/) e instala python3 (Windows Executable Installer)
+
+Ejecuta en la terminal:
+```sh
+pip3 install --upgrade tensorflow
+pip3 install --upgrade tensorflow-gpu
+```
+
+Para ver si funciona ejecuta:
+```sh
+python
+```
+
+Y en la consola interactiva escribe:
+```python3
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print(sess.run(hello))
+```
+
+Asegurate de que sale (significaría que todo funciona correctamente):
+```sh
+Hello, TensorFlow!
+```
+
 ### Cómo ejecutar
 Ahora podéis ejecutar los códigos del archivo `neural-networks.py` sin problema, así:
 ```sh
