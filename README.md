@@ -18,8 +18,9 @@ sudo pip3 install tensorflow
 Ejecuta en la terminal:
 ```sh
 sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install python2.7
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python-pip
 sudo apt-get install python3-pip
 ```
