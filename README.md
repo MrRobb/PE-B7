@@ -48,7 +48,7 @@ Y en la consola interactiva escribe:
 ```
 
 Asegurate de que sale (significaría que todo funciona correctamente):
-```sh
+```txt
 Hello, TensorFlow!
 ```
 
