@@ -5,8 +5,7 @@ from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
 
 # Parametros constantes
 iterations = 5000
-display_step = 5
-batch = 100
+display_step = 1
 tf.set_random_seed(0)
 sd = 0.1
 img_size = 28
@@ -35,7 +34,8 @@ B1 = tf.Variable(tf.truncated_normal([K], stddev=sd))
 N = 200     # fully connected
 W2 = tf.Variable(tf.truncated_normal([7 * 7 * K, N], stddev=sd))
 B2 = tf.Variable(tf.truncated_normal([N], stddev=sd))
-            # output layer
+
+# Output layer
 W3 = tf.Variable(tf.truncated_normal([N, classification], stddev=sd))
 B3 = tf.Variable(tf.truncated_normal([classification], stddev=sd))
 
