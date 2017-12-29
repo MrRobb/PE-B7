@@ -53,7 +53,7 @@ Hello, TensorFlow!
 ```
 
 ### Cómo ejecutar
-Ahora podéis ejecutar los códigos del archivo `neural-networks.py` sin problema, así:
+Ahora podéis ejecutar los códigos del archivo `1layer.py` sin problema, así:
 ```sh
-python3 neural-networks.py
+python 1layer.py
 ```
