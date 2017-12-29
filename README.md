@@ -57,3 +57,13 @@ Ahora podéis ejecutar los códigos del archivo `1layer.py` sin problema, así:
 ```sh
 python 1layer.py
 ```
+
+### Cómo hacer un timing
+Si queréis saber cuánto tarda vuestro ordenador en ejecutar el código, tan solo ejecuta:
+```sh
+time python 1layer.py > /dev/null 2> /dev/null
+```
+
+> 1 layer --> 39.804 total, 39.112 total, 40.261 total, 39.854 total (4 ejecuciones)
+> 3 layer -->
+> 5 layer -->
