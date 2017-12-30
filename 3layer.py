@@ -27,28 +27,42 @@ pkeep = tf.placeholder(tf.float32)
 X = tf.placeholder(tf.float32, [None, img_size, img_size, 1])
 
 # Hidden layers
-K = 8       # convolutional
+K = 4       # convolutional 1
 W1 = tf.Variable(tf.truncated_normal([5, 5, 1, K], stddev=sd))
 B1 = tf.Variable(tf.truncated_normal([K], stddev=sd))
 
+L = 8       # convolutional 2
+W2 = tf.Variable(tf.truncated_normal([5, 5, K, L], stddev=sd))
+B2 = tf.Variable(tf.truncated_normal([L], stddev=sd))
+
+M = 16       # convolutional 3
+W3 = tf.Variable(tf.truncated_normal([5, 5, L, M], stddev=sd))
+B3 = tf.Variable(tf.truncated_normal([M], stddev=sd))
+
 N = 200     # fully connected
-W2 = tf.Variable(tf.truncated_normal([7 * 7 * K, N], stddev=sd))
-B2 = tf.Variable(tf.truncated_normal([N], stddev=sd))
+W4 = tf.Variable(tf.truncated_normal([7 * 7 * M, N], stddev=sd))
+B4 = tf.Variable(tf.truncated_normal([N], stddev=sd))
 
 # Output layer
-W3 = tf.Variable(tf.truncated_normal([N, classification], stddev=sd))
-B3 = tf.Variable(tf.truncated_normal([classification], stddev=sd))
+W5 = tf.Variable(tf.truncated_normal([N, classification], stddev=sd))
+B5 = tf.Variable(tf.truncated_normal([classification], stddev=sd))
 
 ## [OUTPUT] 0,1,2...9 digitos, aqui iran las respuestas
 Y_ = tf.placeholder(tf.float32, [None, classification])
 
 
 # Modelo
-stride = 4  # 28x28 --> 7x7
+# Convolutional
+stride = 1  # 28x28 --> 28x28
 Y1 = tf.nn.relu(tf.nn.conv2d(X, W1, strides=[1, stride, stride, 1], padding='SAME') + B1)
-Y_reshape = tf.reshape(Y1, shape=[-1, 7 * 7 * K])   # necesario para pasar de conv --> fully connected
-Y2 = tf.nn.relu(tf.matmul(Y_reshape, W2) + B2)
-Y_intermediate = tf.matmul(Y2, W3) + B3             # necesario para cross entropy
+stride = 2	# 28x28 --> 14x14
+Y2 = tf.nn.relu(tf.nn.conv2d(Y1, W2, strides=[1, stride, stride, 1], padding='SAME') + B2)
+stride = 2	# 14x14 --> 7x7
+Y3 = tf.nn.relu(tf.nn.conv2d(Y2, W3, strides=[1, stride, stride, 1], padding='SAME') + B3)
+# Fully connected
+Y_reshape = tf.reshape(Y3, shape=[-1, 7 * 7 * M])   # necesario para pasar de conv --> fully connected
+Y4 = tf.nn.relu(tf.matmul(Y_reshape, W4) + B4)
+Y_intermediate = tf.matmul(Y4, W5) + B5             # necesario para cross entropy
 Y = tf.nn.softmax(Y_intermediate)
 
 

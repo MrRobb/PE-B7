@@ -55,7 +55,7 @@ Hello, TensorFlow!
 ### Cómo ejecutar
 Ahora podéis ejecutar los códigos del archivo `1layer.py` sin problema, así:
 ```sh
-python 1layer.py
+python 1layer.py 2> /dev/null
 ```
 
 ### Cómo hacer un timing
