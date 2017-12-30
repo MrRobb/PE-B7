@@ -10,6 +10,7 @@ brew install python
 brew postinstall python
 brew install python3
 brew postinstall python3
+sudo easy_install pip
 sudo pip install tensorflow
 sudo pip3 install tensorflow
 ```
