@@ -10,7 +10,29 @@ layer5data <- read.csv("results/5layer/5layer_5000iterations_1step.csv")
 
 # png(file = "layer1data.png")
 plot(layer1data$Test.Accuracy, type = "l", col = "red", xlab = "Iteraciones", ylab = "Probabilidad de acierto", 
-     main = "Precision del test")
+     main = "Precision del test", pch = 0:2000)
 lines(layer3data$Test.Accuracy, type = "l", col = "blue")
 lines(layer5data$Test.Accuracy, type = "l", col = "green")
 # dev.off()
+
+"layer1data"
+summary(layer1data$Iterations)
+summary(layer1data$Training.Accuracy)
+summary(layer1data$Training.Loss)
+summary(layer1data$Test.Accuracy)
+summary(layer1data$Test.Loss)
+
+"layer3data"
+summary(layer3data$Iterations)
+summary(layer3data$Training.Accuracy)
+summary(layer3data$Training.Loss)
+summary(layer3data$Test.Accuracy)
+summary(layer3data$Test.Loss)
+
+
+"layer5data"
+summary(layer5data$Iterations)
+summary(layer5data$Training.Accuracy)
+summary(layer5data$Training.Loss)
+summary(layer5data$Test.Accuracy)
+summary(layer5data$Test.Loss)
