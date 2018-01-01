@@ -8,4 +8,9 @@ layer5data <- read.csv("results/5layer/5layer_5000iterations_1step.csv")
 
 # Plot data
 
-png(file = "layer1data.png")
+# png(file = "layer1data.png")
+plot(layer1data$Test.Accuracy, type = "l", col = "red", xlab = "Iteraciones", ylab = "Probabilidad de acierto", 
+     main = "Precision del test")
+lines(layer3data$Test.Accuracy, type = "l", col = "blue")
+lines(layer5data$Test.Accuracy, type = "l", col = "green")
+# dev.off()
