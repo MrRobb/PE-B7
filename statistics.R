@@ -36,7 +36,6 @@ summary(layer3data$Training.Loss)
 summary(layer3data$Test.Accuracy)
 summary(layer3data$Test.Loss)
 
-
 "layer5data"
 summary(layer5data$Iterations)
 summary(layer5data$Training.Accuracy)
