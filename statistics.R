@@ -42,3 +42,32 @@ summary(layer5data$Training.Accuracy)
 summary(layer5data$Training.Loss)
 summary(layer5data$Test.Accuracy)
 summary(layer5data$Test.Loss)
+
+n1 = length(layer1data$Training.Accuracy); n1
+n3 = length(layer3data$Training.Accuracy); n3
+n5 = length(layer5data$Training.Accuracy); n5
+
+s1 = sd (layer1data$Training.Accuracy)
+s3 = sd (layer3data$Training.Accuracy)
+s5 = sd (layer5data$Training.Accuracy)
+
+m1 = mean (layer1data$Training.Accuracy)
+m3 = mean (layer3data$Training.Accuracy)
+m5 = mean (layer5data$Training.Accuracy)
+
+z13 = (m1-m3)/(sqrt((s1^2)/n1)+((s3^2)/n3)); z13
+z35 = (m3-m5)/(sqrt((s3^2)/n3)+((s5^2)/n5)); z35
+
+confi = 0.999
+zalfa = qnorm(confi, mean = 0, sd = 1)
+
+if (zalfa < abs(z13))
+{
+  cat("Rechazamos Ho de 1 y 3 -> 3 es mejor que 1, con una confianza del", confi*100, "%")
+} else  print("No podemos rechazar Ho de 1 y 3")   
+
+
+if (zalfa < abs(z35))
+{
+  cat("Rechazamos Ho de 3 y 5 -> 5 es mejor que 3 con una confianza del", confi*100,"%")
+} else print("No podemos rechazar Ho de 3 y 5")   
