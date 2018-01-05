@@ -18,7 +18,7 @@ lines(layer3Data$Test.Accuracy, type = "l", col = "blue")
 lines(layer5Data$Test.Accuracy, type = "l", col = "green")
 dev.off()
 
-png(file = "images/layersdatazoom.png", width = 10, height = 10, units = 'in', res = 100)
+png(file = "images/layersdatazoom.png", width = 3, height = 3, units = 'in', res = 330)
 plot(layer1Data$Test.Accuracy, 
      type = "l", col = "red", 
      xlab = "Iteraciones", 
