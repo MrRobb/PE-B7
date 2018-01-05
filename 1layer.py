@@ -5,7 +5,7 @@ from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
 
 # Parametros constantes
 iterations = 5000
-display_step = 1
+display_step = 10000
 tf.set_random_seed(0)
 sd = 0.1
 img_size = 28
