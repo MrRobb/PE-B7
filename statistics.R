@@ -2,9 +2,9 @@
 browseURL("https://i.stack.imgur.com/7A467.jpg")
 
 # Load data
-layer1data <- read.csv("results/1layer/1layer_5000iterations_1step.csv")
-layer3data <- read.csv("results/3layer/3layer_5000iterations_1step.csv")
-layer5data <- read.csv("results/5layer/5layer_5000iterations_1step.csv")
+layer1Data <- read.csv("results/1layer/1layer_5000iterations_1step.csv")
+layer3Data <- read.csv("results/3layer/3layer_5000iterations_1step.csv")
+layer5Data <- read.csv("results/5layer/5layer_5000iterations_1step.csv")
 
 # Plot data
 
@@ -78,3 +78,11 @@ if (zalfa < abs(z35))
 {
   cat("Rechazamos Ho de 3 y 5 -> 5 es mejor que 3 con una confianza del", confi*100,"%")
 } else print("No podemos rechazar Ho de 3 y 5")
+
+
+timingData <- read.csv("results/timing.csv")
+func <- lm(timingData$Tiempo..segundos..Y~timingData$N..mero.de.Capas.X)
+summary(func)
+plot(timingData, col = "blue", main = "Tiempo de entrenamiento", xlab = "Capas", ylab = "Segundos")
+abline(func)
+
