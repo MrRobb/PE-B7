@@ -81,7 +81,7 @@ if (zalfa < abs(z35))
 
 
 timingData <- read.csv("results/timing.csv")
-func <- lm(timingData$Tiempo..segundos..Y~timingData$N..mero.de.Capas.X)
+func <- lm(timingData$Tiempo..segundos..Y~timingData$Numero.de.Capas.X)
 summary(func)
 png(file = "images/timing.png", width = 10, height = 10, units = 'in', res = 100)
 plot(timingData, col = "blue", main = "Tiempo de entrenamiento", xlab = "Capas", ylab = "Segundos")
