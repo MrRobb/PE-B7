@@ -88,5 +88,7 @@ plot(timingData, col = "blue", main = "Tiempo de entrenamiento", xlab = "Capas",
 abline(func)
 dev.off()
 
+cat("Y = ", func$coefficients[2], "· X +", func$coefficients[1])
+
 cat("Tiempo de entrenamiento red 2 layers =", func$coefficients[1] + func$coefficients[2] * 2, "segundos")
 cat("Tiempo de entrenamiento red 4 layers =", func$coefficients[1] + func$coefficients[2] * 4, "segundos")
