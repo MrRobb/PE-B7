@@ -67,6 +67,6 @@ time python 1layer.py > /dev/null 2> /dev/null
 
 > 1 layer --> 39.804 total, 39.112 total, 40.261 total, 39.854 total (4 ejecuciones)
 >
-> 3 layer -->
+> 3 layer --> 206.42 total, 189.27 total, 189.98 total 
 >
 > 5 layer --> 436.96 total, 412.55 total
