@@ -71,4 +71,6 @@ time python 1layer.py > /dev/null 2> /dev/null
 >
 > 180,64 total (3), 177.55 total (3)
 >
-> 5 layer --> 436.96 total, 412.55 total, 486.97 total, 508.82 total
+> 5 layer --> 436.96 total, 412.55 total,
+> 
+> 486.97 total (5), 508.82 total (5)
