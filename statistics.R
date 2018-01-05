@@ -13,7 +13,7 @@ plot(layer1Data$Test.Accuracy,
      type = "l", col = "red", 
      xlab = "Iteraciones", 
      ylab = "Probabilidad de acierto", 
-     main = "Precision del test")
+     main = "Precision")
 lines(layer3Data$Test.Accuracy, type = "l", col = "blue")
 lines(layer5Data$Test.Accuracy, type = "l", col = "green")
 dev.off()
@@ -23,7 +23,7 @@ plot(layer1Data$Test.Accuracy,
      type = "l", col = "red", 
      xlab = "Iteraciones", 
      ylab = "Probabilidad de acierto", 
-     main = "Precision del test", 
+     main = "Precision", 
      xlim = c(4900, 5000), ylim = c(0.98, 1.0))
 lines(layer3Data$Test.Accuracy, type = "l", col = "blue")
 lines(layer5Data$Test.Accuracy, type = "l", col = "green")
@@ -87,3 +87,8 @@ png(file = "images/timing.png", width = 10, height = 10, units = 'in', res = 100
 plot(timingData, col = "blue", main = "Tiempo de entrenamiento", xlab = "Capas", ylab = "Segundos")
 abline(func)
 dev.off()
+
+cat("Y = ", func$coefficients[2], "· X +", func$coefficients[1])
+
+cat("Tiempo de entrenamiento red 2 layers =", func$coefficients[1] + func$coefficients[2] * 2, "segundos")
+cat("Tiempo de entrenamiento red 4 layers =", func$coefficients[1] + func$coefficients[2] * 4, "segundos")
