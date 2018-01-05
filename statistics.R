@@ -8,7 +8,7 @@ layer5Data <- read.csv("results/5layer/5layer_5000iterations_1step.csv")
 
 # Plot data
 
-png(file = "resultslayersdata.png", width = 4, height = 4, units = 'in', res = 300)
+png(file = "images/layersdata.png", width = 10, height = 10, units = 'in', res = 100)
 plot(layer1Data$Test.Accuracy, 
      type = "l", col = "red", 
      xlab = "Iteraciones", 
@@ -18,7 +18,7 @@ lines(layer3Data$Test.Accuracy, type = "l", col = "blue")
 lines(layer5Data$Test.Accuracy, type = "l", col = "green")
 dev.off()
 
-png(file = "results/layersdatazoom.png", width = 4, height = 4, units = 'in', res = 300)
+png(file = "images/layersdatazoom.png", width = 10, height = 10, units = 'in', res = 100)
 plot(layer1Data$Test.Accuracy, 
      type = "l", col = "red", 
      xlab = "Iteraciones", 
@@ -83,7 +83,7 @@ if (zalfa < abs(z35))
 timingData <- read.csv("results/timing.csv")
 func <- lm(timingData$Tiempo..segundos..Y~timingData$N..mero.de.Capas.X)
 summary(func)
-png(file = "resultsEntrenamiento.png", width = 10, height = 10, units = 'in', res = 100)
+png(file = "images/timing.png", width = 10, height = 10, units = 'in', res = 100)
 plot(timingData, col = "blue", main = "Tiempo de entrenamiento", xlab = "Capas", ylab = "Segundos")
 abline(func)
 dev.off()
