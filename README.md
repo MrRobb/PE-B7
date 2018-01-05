@@ -69,4 +69,4 @@ time python 1layer.py > /dev/null 2> /dev/null
 >
 > 3 layer -->
 >
-> 5 layer -->
+> 5 layer --> 436.96 total, 412.55 total
