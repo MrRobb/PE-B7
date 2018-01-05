@@ -8,59 +8,59 @@ layer5Data <- read.csv("results/5layer/5layer_5000iterations_1step.csv")
 
 # Plot data
 
-png(file = "resultslayersdata.png")
-plot(layer1data$Test.Accuracy, 
+png(file = "resultslayersdata.png", width = 4, height = 4, units = 'in', res = 300)
+plot(layer1Data$Test.Accuracy, 
      type = "l", col = "red", 
      xlab = "Iteraciones", 
      ylab = "Probabilidad de acierto", 
      main = "Precision del test")
-lines(layer3data$Test.Accuracy, type = "l", col = "blue")
-lines(layer5data$Test.Accuracy, type = "l", col = "green")
+lines(layer3Data$Test.Accuracy, type = "l", col = "blue")
+lines(layer5Data$Test.Accuracy, type = "l", col = "green")
 dev.off()
 
-png(file = "results/layersdatazoom.png")
-plot(layer1data$Test.Accuracy, 
+png(file = "results/layersdatazoom.png", width = 4, height = 4, units = 'in', res = 300)
+plot(layer1Data$Test.Accuracy, 
      type = "l", col = "red", 
      xlab = "Iteraciones", 
      ylab = "Probabilidad de acierto", 
      main = "Precision del test", 
      xlim = c(4900, 5000), ylim = c(0.98, 1.0))
-lines(layer3data$Test.Accuracy, type = "l", col = "blue")
-lines(layer5data$Test.Accuracy, type = "l", col = "green")
+lines(layer3Data$Test.Accuracy, type = "l", col = "blue")
+lines(layer5Data$Test.Accuracy, type = "l", col = "green")
 dev.off()
 
-"layer1data"
-summary(layer1data$Iterations)
-summary(layer1data$Training.Accuracy)
-summary(layer1data$Training.Loss)
-summary(layer1data$Test.Accuracy)
-summary(layer1data$Test.Loss)
+"layer1Data"
+summary(layer1Data$Iterations)
+summary(layer1Data$Training.Accuracy)
+summary(layer1Data$Training.Loss)
+summary(layer1Data$Test.Accuracy)
+summary(layer1Data$Test.Loss)
 
-"layer3data"
-summary(layer3data$Iterations)
-summary(layer3data$Training.Accuracy)
-summary(layer3data$Training.Loss)
-summary(layer3data$Test.Accuracy)
-summary(layer3data$Test.Loss)
+"layer3Data"
+summary(layer3Data$Iterations)
+summary(layer3Data$Training.Accuracy)
+summary(layer3Data$Training.Loss)
+summary(layer3Data$Test.Accuracy)
+summary(layer3Data$Test.Loss)
 
-"layer5data"
-summary(layer5data$Iterations)
-summary(layer5data$Training.Accuracy)
-summary(layer5data$Training.Loss)
-summary(layer5data$Test.Accuracy)
-summary(layer5data$Test.Loss)
+"layer5Data"
+summary(layer5Data$Iterations)
+summary(layer5Data$Training.Accuracy)
+summary(layer5Data$Training.Loss)
+summary(layer5Data$Test.Accuracy)
+summary(layer5Data$Test.Loss)
 
-n1 = length(layer1data$Training.Accuracy);
-n3 = length(layer3data$Training.Accuracy);
-n5 = length(layer5data$Training.Accuracy);
+n1 = length(layer1Data$Training.Accuracy);
+n3 = length(layer3Data$Training.Accuracy);
+n5 = length(layer5Data$Training.Accuracy);
 
-s1 = sd (layer1data$Training.Accuracy)
-s3 = sd (layer3data$Training.Accuracy)
-s5 = sd (layer5data$Training.Accuracy)
+s1 = sd (layer1Data$Training.Accuracy)
+s3 = sd (layer3Data$Training.Accuracy)
+s5 = sd (layer5Data$Training.Accuracy)
 
-m1 = mean (layer1data$Training.Accuracy)
-m3 = mean (layer3data$Training.Accuracy)
-m5 = mean (layer5data$Training.Accuracy)
+m1 = mean (layer1Data$Training.Accuracy)
+m3 = mean (layer3Data$Training.Accuracy)
+m5 = mean (layer5Data$Training.Accuracy)
 
 z13 = (m1-m3)/(sqrt((s1^2)/n1)+((s3^2)/n3)); z13
 z35 = (m3-m5)/(sqrt((s3^2)/n3)+((s5^2)/n5)); z35
@@ -83,6 +83,7 @@ if (zalfa < abs(z35))
 timingData <- read.csv("results/timing.csv")
 func <- lm(timingData$Tiempo..segundos..Y~timingData$N..mero.de.Capas.X)
 summary(func)
+png(file = "resultsEntrenamiento.png", width = 10, height = 10, units = 'in', res = 100)
 plot(timingData, col = "blue", main = "Tiempo de entrenamiento", xlab = "Capas", ylab = "Segundos")
 abline(func)
-
+dev.off()
